@@ -26,31 +26,32 @@ int main()
     for(i=1;i<n;i++)
     {
       x=a+i*h;
-      if(i%2==0)
       {
-      sum=sum+2*f(x);
-      integral=(h/3)*(f(a)+f(b)+sum);
-      }
-      else if(i%2==1)
-      {
-        sum=sum+4*f(x);
-        integral=(h/3)*(f(a)+f(b)+sum);
-      }
-      else if(i%3==0)
-      {
+        if(i%2==0)
+        {
         sum=sum+2*f(x);
-        integral=(3*h/8)*(f(a)+f(b)+sum);
+        integral=(h/3)*(f(a)+f(b)+sum);
+        }
+        else 
+        {
+          sum=sum+4*f(x);
+          integral=(h/3)*(f(a)+f(b)+sum);
+        }
       }
-      else if(i%3!=0)
       {
-        sum=sum+3*f(x);
-        integral=(3*h/8)*(f(a)+f(b)+sum);
-      }
-      else
-      {
-
+        if(i%3==0)
+        {
+          sum=sum+2*f(x);
+          integral=(3*h/8)*(f(a)+f(b)+sum);
+        }
+        else 
+        {
+          sum=sum+3*f(x);
+          integral=(3*h/8)*(f(a)+f(b)+sum);
+       }
       }
     }
+     
   /*Print the answer */
   printf("\nThe integral is: %lf\n",integral);
 
